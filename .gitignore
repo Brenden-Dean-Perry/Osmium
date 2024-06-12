@@ -1,52 +1,149 @@
-# Prerequisites
-*.d
+# Visual Studio Code / Visual Studio 2015 and newer
+.vscode/
+*.sln
+*.suo
+*.ntvs*
+*.njsproj
+*.sln.docstates
 
-# Object files
-*.o
-*.ko
-*.obj
-*.elf
+# Rider
+.idea/
+*.sln.iml
 
-# Linker output
-*.ilk
-*.map
-*.exp
+# User-specific files
+*.user
+*.userosscache
+*.suo
+*.sln.docstates
 
-# Precompiled Headers
-*.gch
-*.pch
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Aa][Rr][Mm]/
+[Aa][Rr][Mm]64/
+bld/
+[Bb]in/
+[Oo]bj/
+[Ll]og/
+[Ll]ogs/
 
-# Libraries
-*.lib
-*.a
-*.la
-*.lo
+# Visual Studio IntelliSense
+*.opendb
 
-# Shared objects (inc. Windows DLLs)
-*.dll
-*.so
-*.so.*
-*.dylib
+# Resharper
+_ReSharper*/
+*.[Rr]e[Ss]harper
+*.DotSettings.user
 
-# Executables
-*.exe
-*.out
-*.app
-*.i*86
-*.x86_64
-*.hex
+# NuGet
+*.nuget/
+*.nupkg
+*.paket/paket-files/
+paket-files/
 
-# Debug files
-*.dSYM/
-*.su
-*.idb
-*.pdb
+# MSTest test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
 
-# Kernel Module Compile Results
-*.mod*
-*.cmd
-.tmp_versions/
-modules.order
-Module.symvers
-Mkfile.old
-dkms.conf
+# NCrunch
+[Nn]Crunch*/
+.*Crunch*.local.xml
+
+# ReSharper
+*.suo
+*.[Cc]ache
+*.resharper
+*.resharper.user
+
+# TeamCity
+_TeamCity*
+
+# DotCover
+*.dotCover
+
+# AxoCover
+.axoCover/*
+!.axoCover/settings.json
+
+# Coverlet
+coverage/
+
+# NCover
+*.nccov
+
+# Visual Studio Code Coverage Results
+*.coverage
+*.coveragexml
+
+# Visual Studio test results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# TFS 2012 Local Workspace
+$tf/
+
+# Guidance Automation Toolkit
+*.gpState
+
+# DotCover
+*.dotCover
+
+# Visual Studio SQL Server Project
+*.bak
+*.sqlbak
+*.dacpac
+*.dacpac.*
+
+# Rider
+.idea/
+*.sln.iml
+
+# GhostDoc
+[Gg]host[Dd]oc[.generated]
+
+# Paket dependency manager
+.paket/paket.exe
+.paket/paket.targets
+paket-files/
+.paket/
+
+# FAKE - F# Make
+.fake/
+
+# JetBrains Rider
+.idea/
+*.sln.iml
+*.ipr
+*.iws
+.idea/
+*.resharper
+*.resharper.user
+*.dotCover
+*.dotSettings
+*.nunit
+*.nunit.*
+*.sln.dotSettings.user
+
+# CodeRush
+.sln.xml
+
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# VS Code
+.vscode/
+*.code-workspace
+
+# Visual Studio Cach Manager
+.vs/
