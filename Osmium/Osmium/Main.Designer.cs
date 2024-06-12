@@ -58,6 +58,7 @@
             this.btn_Development.TabIndex = 2;
             this.btn_Development.Text = "Development";
             this.btn_Development.UseVisualStyleBackColor = true;
+            this.btn_Development.Click += new System.EventHandler(this.btn_Development_Click);
             // 
             // btn_KeyManager
             // 

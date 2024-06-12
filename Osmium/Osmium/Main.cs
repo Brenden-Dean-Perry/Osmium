@@ -26,5 +26,11 @@ namespace Osmium
             btn_KeyManager.FlatStyle = FlatStyle.Flat;
             btn_Development.FlatStyle = FlatStyle.Flat;
         }
+
+        private void btn_Development_Click(object sender, EventArgs e)
+        {
+            OpenAIAPI ai = new OpenAIAPI("api_Key");
+            MessageBox.Show(ai.GetEmbedding("This is a test!"));
+        }
     }
 }
