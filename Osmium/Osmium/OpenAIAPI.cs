@@ -33,6 +33,7 @@ namespace Osmium
             };
 
             RestResponse response = client.Execute(request);
+            MessageBox.Show(response.Content?.ToString());
 
             if (response.IsSuccessful)
             {
@@ -62,6 +63,7 @@ namespace Osmium
             };
 
             RestResponse response = client.Execute(request);
+            MessageBox.Show(response.Content?.ToString());
 
             if (response.IsSuccessful)
             {

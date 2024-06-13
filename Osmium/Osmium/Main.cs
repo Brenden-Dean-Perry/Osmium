@@ -2,11 +2,11 @@ namespace Osmium
 {
     public partial class Main : Form
     {
-        private Config _config { get; set; }
+        private UIConfig _config { get; set; }
         public Main()
         {
             InitializeComponent();
-            _config = new Config();
+            _config = new UIConfig();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -19,18 +19,36 @@ namespace Osmium
             this.BackColor = _config.BackColor;
             panel_Menu.BackColor = _config.BackColor2;
             panel_Logo.BackColor = _config.BackColor2;
-            btn_Development.BackColor = _config.BackColor2;
-            btn_KeyManager.BackColor = _config.BackColor2;
-            btn_Development.ForeColor = _config.TextForeColor;
-            btn_KeyManager.ForeColor = _config.TextForeColor;
-            btn_KeyManager.FlatStyle = FlatStyle.Flat;
-            btn_Development.FlatStyle = FlatStyle.Flat;
+
+            foreach(Control control in panel_Menu.Controls)
+            {
+                if(control is Button)
+                {
+                    control.BackColor = _config.BackColor2;
+                    control.ForeColor = _config.TextForeColor;
+                    ((Button)control).FlatStyle = FlatStyle.Flat;
+                }
+            }
         }
 
         private void btn_Development_Click(object sender, EventArgs e)
         {
-            OpenAIAPI ai = new OpenAIAPI("api_Key");
-            MessageBox.Show(ai.GetEmbedding("This is a test!"));
+            OpenFileDialog ofd = new OpenFileDialog();
+            ofd.ShowDialog();
+            string file = ofd.FileName;
+
+            string api_Key = File.ReadAllText(file);
+
+            MessageBox.Show(api_Key);
+
+            OpenAIAPI ai = new OpenAIAPI(api_Key);
+            MessageBox.Show(ai.GetEmbedding("Say this is a test!"));
+        }
+
+        private void btn_MarketAccess_Click(object sender, EventArgs e)
+        {
+            Form marketAccess = new Views.MarketAccess();
+            marketAccess.Show();
         }
     }
 }

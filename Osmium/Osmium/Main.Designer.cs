@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.panel_Menu = new System.Windows.Forms.Panel();
+            this.btn_MarketAccess = new System.Windows.Forms.Button();
             this.btn_Development = new System.Windows.Forms.Button();
             this.btn_KeyManager = new System.Windows.Forms.Button();
             this.panel_Logo = new System.Windows.Forms.Panel();
             this.label_Logo = new System.Windows.Forms.Label();
+            this.btn_Trading = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             this.panel_Logo.SuspendLayout();
             this.SuspendLayout();
@@ -42,6 +44,8 @@
             this.panel_Menu.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(20)))), ((int)(((byte)(20)))), ((int)(((byte)(20)))));
             this.panel_Menu.Controls.Add(this.btn_Development);
             this.panel_Menu.Controls.Add(this.btn_KeyManager);
+            this.panel_Menu.Controls.Add(this.btn_Trading);
+            this.panel_Menu.Controls.Add(this.btn_MarketAccess);
             this.panel_Menu.Controls.Add(this.panel_Logo);
             this.panel_Menu.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel_Menu.Location = new System.Drawing.Point(0, 0);
@@ -49,10 +53,21 @@
             this.panel_Menu.Size = new System.Drawing.Size(465, 1126);
             this.panel_Menu.TabIndex = 0;
             // 
+            // btn_MarketAccess
+            // 
+            this.btn_MarketAccess.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_MarketAccess.Location = new System.Drawing.Point(0, 158);
+            this.btn_MarketAccess.Name = "btn_MarketAccess";
+            this.btn_MarketAccess.Size = new System.Drawing.Size(465, 81);
+            this.btn_MarketAccess.TabIndex = 3;
+            this.btn_MarketAccess.Text = "Market Access";
+            this.btn_MarketAccess.UseVisualStyleBackColor = true;
+            this.btn_MarketAccess.Click += new System.EventHandler(this.btn_MarketAccess_Click);
+            // 
             // btn_Development
             // 
             this.btn_Development.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Development.Location = new System.Drawing.Point(0, 239);
+            this.btn_Development.Location = new System.Drawing.Point(0, 401);
             this.btn_Development.Name = "btn_Development";
             this.btn_Development.Size = new System.Drawing.Size(465, 81);
             this.btn_Development.TabIndex = 2;
@@ -63,7 +78,7 @@
             // btn_KeyManager
             // 
             this.btn_KeyManager.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_KeyManager.Location = new System.Drawing.Point(0, 158);
+            this.btn_KeyManager.Location = new System.Drawing.Point(0, 320);
             this.btn_KeyManager.Name = "btn_KeyManager";
             this.btn_KeyManager.Size = new System.Drawing.Size(465, 81);
             this.btn_KeyManager.TabIndex = 1;
@@ -90,6 +105,16 @@
             this.label_Logo.TabIndex = 0;
             this.label_Logo.Text = "Osmium";
             // 
+            // btn_Trading
+            // 
+            this.btn_Trading.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Trading.Location = new System.Drawing.Point(0, 239);
+            this.btn_Trading.Name = "btn_Trading";
+            this.btn_Trading.Size = new System.Drawing.Size(465, 81);
+            this.btn_Trading.TabIndex = 4;
+            this.btn_Trading.Text = "Trading";
+            this.btn_Trading.UseVisualStyleBackColor = true;
+            // 
             // Main
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(17F, 41F);
@@ -114,5 +139,7 @@
         private Button btn_KeyManager;
         private Panel panel_Logo;
         private Label label_Logo;
+        private Button btn_MarketAccess;
+        private Button btn_Trading;
     }
 }
