@@ -1,12 +1,18 @@
+using DataAccess;
+
 namespace Osmium
 {
     public partial class Main : Form
     {
         private UIConfig _config { get; set; }
+        private ViewFactory _viewFactory { get; set; }
+        private ConfigManager _configManager { get; set; }
         public Main()
         {
             InitializeComponent();
             _config = new UIConfig();
+            _viewFactory = new ViewFactory();
+            _configManager = new ConfigManager();
         }
 
         private void Main_Load(object sender, EventArgs e)
@@ -36,18 +42,17 @@ namespace Osmium
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.ShowDialog();
             string file = ofd.FileName;
-
             string api_Key = File.ReadAllText(file);
 
             MessageBox.Show(api_Key);
-
-            OpenAIAPI ai = new OpenAIAPI(api_Key);
-            MessageBox.Show(ai.GetEmbedding("Say this is a test!"));
+            
+            DataAccess.OpenAIAPI ai = new DataAccess.OpenAIAPI(api_Key);
+            //MessageBox.Show(ai.GetEmbedding("Say this is a test!"));
         }
 
         private void btn_MarketAccess_Click(object sender, EventArgs e)
         {
-            Form marketAccess = new Views.MarketAccess();
+            Form marketAccess = _viewFactory.CreateMarketAccess();
             marketAccess.Show();
         }
     }

@@ -20,9 +20,8 @@ namespace Osmium.Views
 
         private void btn_Refesh_Click(object sender, EventArgs e)
         {
-             AlphaVantageAPI api = new AlphaVantageAPI("demo");
-            Dictionary<string, dynamic> results = api.GetTickerSearchResults("AP");
-            textBox_Test.Text = results.ToList()[0].Value.ToString();
+            DataAccess.AlphaVantageAPI api = new DataAccess.AlphaVantageAPI("demo");
+            MessageBox.Show(api.GetAPITest());
         }
 
         private void textBox_Test_TextChanged(object sender, EventArgs e)

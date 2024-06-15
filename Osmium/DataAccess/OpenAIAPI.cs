@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using RestSharp;
 
-namespace Osmium
+namespace DataAccess
 {
-    internal class OpenAIAPI
+    public class OpenAIAPI
     {
         private string _apiKey { get; set; }
         public OpenAIAPI(string ApiKey)
@@ -33,7 +33,7 @@ namespace Osmium
             };
 
             RestResponse response = client.Execute(request);
-            MessageBox.Show(response.Content?.ToString());
+            //MessageBox.Show(response.Content?.ToString());
 
             if (response.IsSuccessful)
             {
@@ -63,7 +63,7 @@ namespace Osmium
             };
 
             RestResponse response = client.Execute(request);
-            MessageBox.Show(response.Content?.ToString());
+            //MessageBox.Show(response.Content?.ToString());
 
             if (response.IsSuccessful)
             {
