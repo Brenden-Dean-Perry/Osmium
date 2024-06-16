@@ -9,6 +9,7 @@
   <ItemGroup>
     <Folder Include="Extentions\" />
     <Folder Include="Objects\" />
+    <Folder Include="Utilities\" />
   </ItemGroup>
 
 </Project>

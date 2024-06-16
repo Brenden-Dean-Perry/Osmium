@@ -21,7 +21,7 @@ namespace Osmium.Views
         private void btn_Refesh_Click(object sender, EventArgs e)
         {
             DataAccess.AlphaVantageAPI api = new DataAccess.AlphaVantageAPI("demo");
-            MessageBox.Show(api.GetAPITest());
+            MessageBox.Show(api.GetPrice("IBM").ToString());
         }
 
         private void textBox_Test_TextChanged(object sender, EventArgs e)

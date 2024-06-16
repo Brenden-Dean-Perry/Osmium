@@ -31,13 +31,14 @@
             this.btn_Refesh = new System.Windows.Forms.Button();
             this.textBox_Test = new System.Windows.Forms.TextBox();
             this.panel_Menu = new System.Windows.Forms.Panel();
-            this.panel_logo = new System.Windows.Forms.Panel();
-            this.btn_MarketStatus = new System.Windows.Forms.Button();
-            this.btn_GetQuote = new System.Windows.Forms.Button();
-            this.btn_NewsFeed = new System.Windows.Forms.Button();
-            this.btn_Economy = new System.Windows.Forms.Button();
-            this.btn_Fundamentals = new System.Windows.Forms.Button();
             this.btn_TimeSeries = new System.Windows.Forms.Button();
+            this.btn_Fundamentals = new System.Windows.Forms.Button();
+            this.btn_Economy = new System.Windows.Forms.Button();
+            this.btn_NewsFeed = new System.Windows.Forms.Button();
+            this.btn_GetQuote = new System.Windows.Forms.Button();
+            this.btn_MarketStatus = new System.Windows.Forms.Button();
+            this.panel_logo = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel_Menu.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -64,6 +65,7 @@
             // 
             // panel_Menu
             // 
+            this.panel_Menu.Controls.Add(this.button1);
             this.panel_Menu.Controls.Add(this.btn_TimeSeries);
             this.panel_Menu.Controls.Add(this.btn_Fundamentals);
             this.panel_Menu.Controls.Add(this.btn_Economy);
@@ -77,53 +79,15 @@
             this.panel_Menu.Size = new System.Drawing.Size(376, 1117);
             this.panel_Menu.TabIndex = 2;
             // 
-            // panel_logo
+            // btn_TimeSeries
             // 
-            this.panel_logo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel_logo.Location = new System.Drawing.Point(0, 0);
-            this.panel_logo.Name = "panel_logo";
-            this.panel_logo.Size = new System.Drawing.Size(376, 161);
-            this.panel_logo.TabIndex = 0;
-            // 
-            // btn_MarketStatus
-            // 
-            this.btn_MarketStatus.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_MarketStatus.Location = new System.Drawing.Point(0, 161);
-            this.btn_MarketStatus.Name = "btn_MarketStatus";
-            this.btn_MarketStatus.Size = new System.Drawing.Size(376, 87);
-            this.btn_MarketStatus.TabIndex = 1;
-            this.btn_MarketStatus.Text = "Market Status";
-            this.btn_MarketStatus.UseVisualStyleBackColor = true;
-            // 
-            // btn_GetQuote
-            // 
-            this.btn_GetQuote.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_GetQuote.Location = new System.Drawing.Point(0, 248);
-            this.btn_GetQuote.Name = "btn_GetQuote";
-            this.btn_GetQuote.Size = new System.Drawing.Size(376, 87);
-            this.btn_GetQuote.TabIndex = 2;
-            this.btn_GetQuote.Text = "Get Quote";
-            this.btn_GetQuote.UseVisualStyleBackColor = true;
-            // 
-            // btn_NewsFeed
-            // 
-            this.btn_NewsFeed.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_NewsFeed.Location = new System.Drawing.Point(0, 335);
-            this.btn_NewsFeed.Name = "btn_NewsFeed";
-            this.btn_NewsFeed.Size = new System.Drawing.Size(376, 87);
-            this.btn_NewsFeed.TabIndex = 3;
-            this.btn_NewsFeed.Text = "News Feed";
-            this.btn_NewsFeed.UseVisualStyleBackColor = true;
-            // 
-            // btn_Economy
-            // 
-            this.btn_Economy.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_Economy.Location = new System.Drawing.Point(0, 422);
-            this.btn_Economy.Name = "btn_Economy";
-            this.btn_Economy.Size = new System.Drawing.Size(376, 87);
-            this.btn_Economy.TabIndex = 4;
-            this.btn_Economy.Text = "Economy";
-            this.btn_Economy.UseVisualStyleBackColor = true;
+            this.btn_TimeSeries.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_TimeSeries.Location = new System.Drawing.Point(0, 596);
+            this.btn_TimeSeries.Name = "btn_TimeSeries";
+            this.btn_TimeSeries.Size = new System.Drawing.Size(376, 87);
+            this.btn_TimeSeries.TabIndex = 6;
+            this.btn_TimeSeries.Text = "Time Series";
+            this.btn_TimeSeries.UseVisualStyleBackColor = true;
             // 
             // btn_Fundamentals
             // 
@@ -135,15 +99,63 @@
             this.btn_Fundamentals.Text = "Fundamentals";
             this.btn_Fundamentals.UseVisualStyleBackColor = true;
             // 
-            // btn_TimeSeries
+            // btn_Economy
             // 
-            this.btn_TimeSeries.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btn_TimeSeries.Location = new System.Drawing.Point(0, 596);
-            this.btn_TimeSeries.Name = "btn_TimeSeries";
-            this.btn_TimeSeries.Size = new System.Drawing.Size(376, 87);
-            this.btn_TimeSeries.TabIndex = 6;
-            this.btn_TimeSeries.Text = "Time Series";
-            this.btn_TimeSeries.UseVisualStyleBackColor = true;
+            this.btn_Economy.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_Economy.Location = new System.Drawing.Point(0, 422);
+            this.btn_Economy.Name = "btn_Economy";
+            this.btn_Economy.Size = new System.Drawing.Size(376, 87);
+            this.btn_Economy.TabIndex = 4;
+            this.btn_Economy.Text = "Economy";
+            this.btn_Economy.UseVisualStyleBackColor = true;
+            // 
+            // btn_NewsFeed
+            // 
+            this.btn_NewsFeed.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_NewsFeed.Location = new System.Drawing.Point(0, 335);
+            this.btn_NewsFeed.Name = "btn_NewsFeed";
+            this.btn_NewsFeed.Size = new System.Drawing.Size(376, 87);
+            this.btn_NewsFeed.TabIndex = 3;
+            this.btn_NewsFeed.Text = "News Feed";
+            this.btn_NewsFeed.UseVisualStyleBackColor = true;
+            // 
+            // btn_GetQuote
+            // 
+            this.btn_GetQuote.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_GetQuote.Location = new System.Drawing.Point(0, 248);
+            this.btn_GetQuote.Name = "btn_GetQuote";
+            this.btn_GetQuote.Size = new System.Drawing.Size(376, 87);
+            this.btn_GetQuote.TabIndex = 2;
+            this.btn_GetQuote.Text = "Get Quote";
+            this.btn_GetQuote.UseVisualStyleBackColor = true;
+            // 
+            // btn_MarketStatus
+            // 
+            this.btn_MarketStatus.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btn_MarketStatus.Location = new System.Drawing.Point(0, 161);
+            this.btn_MarketStatus.Name = "btn_MarketStatus";
+            this.btn_MarketStatus.Size = new System.Drawing.Size(376, 87);
+            this.btn_MarketStatus.TabIndex = 1;
+            this.btn_MarketStatus.Text = "Market Status";
+            this.btn_MarketStatus.UseVisualStyleBackColor = true;
+            // 
+            // panel_logo
+            // 
+            this.panel_logo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel_logo.Location = new System.Drawing.Point(0, 0);
+            this.panel_logo.Name = "panel_logo";
+            this.panel_logo.Size = new System.Drawing.Size(376, 161);
+            this.panel_logo.TabIndex = 0;
+            // 
+            // button1
+            // 
+            this.button1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.button1.Location = new System.Drawing.Point(0, 683);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(376, 87);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Data Cache Manager";
+            this.button1.UseVisualStyleBackColor = true;
             // 
             // MarketAccess
             // 
@@ -175,5 +187,6 @@
         private Button btn_GetQuote;
         private Button btn_MarketStatus;
         private Panel panel_logo;
+        private Button button1;
     }
 }
