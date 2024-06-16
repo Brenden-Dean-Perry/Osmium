@@ -34,11 +34,11 @@ namespace DataAccess.Utilities
             return obj;
         }
 
-        internal static T JSONStringToObject<T>(string jsonString)
+        internal static T JSONStringToObject<T>(string jsonString, bool JsonPropertyNameCaseInsenitive = true, bool AllowTrailingCommas = true)
         {
             var options = new JsonSerializerOptions();
-            options.AllowTrailingCommas = true;
-            options.PropertyNameCaseInsensitive = true;
+            options.AllowTrailingCommas = AllowTrailingCommas;
+            options.PropertyNameCaseInsensitive = JsonPropertyNameCaseInsenitive;
             var obj = JsonSerializer.Deserialize<T>(jsonString, options)!;
             return obj;
         }

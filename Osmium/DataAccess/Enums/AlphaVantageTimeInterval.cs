@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using System.ComponentModel;
-using GeneralClassLibrary.Extentions;
 
 namespace DataAccess.Enums
 {
