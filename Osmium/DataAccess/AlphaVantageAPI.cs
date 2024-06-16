@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using GeneralClassLibrary.Extentions;
 
 namespace DataAccess
 {
@@ -49,5 +50,6 @@ namespace DataAccess
         {
             return api.GetLatestTradingDay(Symbol);
         }
+
     }
 }

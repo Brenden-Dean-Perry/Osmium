@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
+using GeneralClassLibrary.Extentions;
 
 namespace DataAccess
 {
@@ -100,8 +101,10 @@ namespace DataAccess
             string QUERY_URL = $"https://www.alphavantage.co/query?function=TOP_GAINERS_LOSERS&apikey={_apiKey}";
             string result = Utilities.JSONUtilities.GetJSONStringFromAPIRequest(QUERY_URL);
             DataModels.MostActiveParentRoot mostActive = Utilities.JSONUtilities.JSONStringToObject<DataModels.MostActiveParentRoot>(result);
-            return mostActive;
+            return mostActive;   
         }
+
+
 
     }
 }
