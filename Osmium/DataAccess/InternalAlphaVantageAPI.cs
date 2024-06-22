@@ -4,6 +4,7 @@ using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using GeneralClassLibrary.Extentions;
+using Newtonsoft.Json.Linq;
 
 namespace DataAccess
 {
@@ -104,14 +105,26 @@ namespace DataAccess
             return mostActive;   
         }
 
-        private string GetIntradayStockTimeSeries(string Symbol, Enums.AlphaVantageTimeInterval TimeInterval = Enums.AlphaVantageTimeInterval.FiveMin, Enums.AlphaVantageOutputSize OutputSize = Enums.AlphaVantageOutputSize.Compact)
+        private SortedDictionary<DateTime, DataModels.TimeSeriesData> GetIntradayStockTimeSeries(string Symbol, Enums.AlphaVantageTimeInterval TimeInterval = Enums.AlphaVantageTimeInterval.FiveMin, Enums.AlphaVantageOutputSize OutputSize = Enums.AlphaVantageOutputSize.Compact)
         {
             string OutputSizeText = OutputSize.StringValueOf();
             string TimeIntervalText = TimeInterval.StringValueOf();
-            string URL = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={Symbol}&interval={OutputSizeText}&outputsize={OutputSizeText}&apikey={_apiKey}";
-            string result = Utilities.JSONUtilities.GetJSONStringFromAPIRequest(URL);
+            string URL = $"https://www.alphavantage.co/query?function=TIME_SERIES_INTRADAY&symbol={Symbol}&interval={TimeIntervalText}&outputsize={OutputSizeText}&apikey={_apiKey}";
+            string JSONString = Utilities.JSONUtilities.GetJSONStringFromAPIRequest(URL);
             //https://stackoverflow.com/questions/74860946/how-do-i-deserialize-json-that-has-date-based-property-names
-            return result;
+            DataModels.TimeSeriesParentRoot timeSeries =  Utilities.JSONUtilities.JSONStringToObject<DataModels.TimeSeriesParentRoot>(JSONString);
+            string timesSeriesJSON = timeSeries.TimeSeriesJSON;
+
+            Dictionary<DateTime, string> timeSeresDict = JObject.Parse(timesSeriesJSON)["Time Series (5min)"].ToObject<Dictionary<DateTime, string>>();
+
+            SortedDictionary<DateTime, DataModels.TimeSeriesData> data = new SortedDictionary<DateTime, DataModels.TimeSeriesData>();
+            foreach (var pair in timeSeresDict)
+            {
+                DataModels.TimeSeriesData extractedData = Utilities.JSONUtilities.JSONStringToObject<DataModels.TimeSeriesData>(pair.Value);
+                data.Add(pair.Key, extractedData);
+            }
+
+            return data;
         }
 
     }
