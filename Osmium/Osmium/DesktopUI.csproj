@@ -10,7 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
-    <ProjectReference Include="..\GeneralClassLibrary\GeneralClassLibrary.csproj" />
+    <ProjectReference Include="..\GeneralClassLibrary\BusinessLogicLibrary.csproj" />
   </ItemGroup>
 
 </Project>

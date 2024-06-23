@@ -8,12 +8,12 @@ using GeneralClassLibrary.Interfaces;
 
 namespace Osmium
 {
-    internal class Notification : INotification
+    internal class DesktopNotification : INotification
     {
         private string _AppName { get;}
         private string _InputBoxValueString { get; set; }
         private DateTime _InputBoxValueDate { set; get; }
-        internal Notification(ConfigManager configManager)
+        internal DesktopNotification(ConfigManager configManager)
         {
             _AppName = configManager.GetAppName();
         }

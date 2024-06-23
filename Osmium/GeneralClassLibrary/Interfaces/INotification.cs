@@ -17,6 +17,6 @@ namespace GeneralClassLibrary.Interfaces
         public Enums.NotificationResponse Inputbox(string Message, int MaxAllowedCharaters = 100);
         public Enums.NotificationResponse InputboxDateTime(string Message, DateTime DefaultDateTime);
         public string GetInputBoxValue();
-        public DateTime GetInputBoxValueDate();
+        public DateTime GetInputBoxDate();
     }
 }
