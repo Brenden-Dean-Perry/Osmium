@@ -8,8 +8,15 @@ namespace GeneralClassLibrary.Interfaces
 {
     public interface INotification
     {
-        public void Notify(string Message);
-        public void NotifyWarning(string Message);
-        public void NotifyError(string Message);
+        public Enums.NotificationResponse Notify(string Message);
+        public Enums.NotificationResponse NotifyWarning(string Message);
+        public Enums.NotificationResponse NotifyError(string Message);
+        public Enums.NotificationResponse NotifyYesNo(string Message);
+        public Enums.NotificationResponse NotifyWarningYesNo(string Message);
+        public Enums.NotificationResponse NotifyErrorYesNo(string Message);
+        public Enums.NotificationResponse Inputbox(string Message, int MaxAllowedCharaters = 100);
+        public Enums.NotificationResponse InputboxDateTime(string Message, DateTime DefaultDateTime);
+        public string GetInputBoxValue();
+        public DateTime GetInputBoxValueDate();
     }
 }

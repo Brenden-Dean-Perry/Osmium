@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneralClassLibrary.Extentions
+namespace GeneralClassLibrary
 {
     public static class DecimalExtentions
     {

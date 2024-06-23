@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Reflection;
 using System.ComponentModel;
 
-namespace GeneralClassLibrary.Extentions
+namespace GeneralClassLibrary
 {
     public static class EnumExtentions
     {

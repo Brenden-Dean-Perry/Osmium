@@ -4,11 +4,11 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-
-namespace GeneralClassLibrary.Utilities
+namespace GeneralClassLibrary.Enums
 {
-    internal class EnumUtilities
+    public enum StatisticsDataSetClassification
     {
-
+        Sample,
+        Population
     }
 }
