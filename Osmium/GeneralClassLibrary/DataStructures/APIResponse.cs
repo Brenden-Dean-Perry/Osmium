@@ -8,9 +8,9 @@ namespace BusinessLogicLibrary.DataStructures
 {
     public class APIResponse
     {
-        public string Ticker { get; set; } 
-        public string Field { get; set; }
-        public string Value { get; set; }
+        public string Ticker { get; set; } = String.Empty;
+        public string Field { get; set; } = String.Empty;
+        public string Value { get; set; } = String.Empty;
         public APIResponse()
         {
 
