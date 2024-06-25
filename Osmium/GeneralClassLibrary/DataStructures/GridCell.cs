@@ -8,9 +8,9 @@ namespace BusinessLogicLibrary.DataStructures
 {
     public class GridCell
     {
-        public int RowIndex { get; set; }
-        public int ColumneIndex { get; set; }
-        public object Value { get; set; }
+        public int RowIndex { get; set; } = -1;
+        public int ColumneIndex { get; set; } = -1;
+        public object? Value { get; set; }
 
         public GridCell()
         {

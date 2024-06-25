@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GeneralClassLibrary.Extentions;
+using BusinessLogicLibrary.Interfaces;
 
 namespace DataAccess
 {
-    public class AlphaVantageAPI: GeneralClassLibrary.Interfaces.IPrice
+    public class AlphaVantageAPI: IPrice
     {
         private InternalAlphaVantageAPI api { get; set; }
         public AlphaVantageAPI(string ApiKey)

@@ -4,14 +4,14 @@ namespace DataAccess.Interfaces
 {
     public interface IBBGAPI
     {
-        BBGAPIHistoricalDataPoint BDH(string Security, string BBGField, DateTime StartDate, DateTime EndDate, bool FillMissingValues = false);
-        BBGAPIDataPoint BDP(string Security, string BBGField);
-        BBGAPIDataPoint BDP(string[] Securities, string BBGField);
-        BBGAPIDataPoint BDP(string[] Securities, string[] BBGFields);
-        string GetBDHAPIMessage();
-        string GetBDPAPIMessage();
-        bool IsBloombergConnected();
-        void KillConnection();
-        void StartSession();
+        public BBGAPIHistoricalDataPoint BDH(string Security, string BBGField, DateTime StartDate, DateTime EndDate, bool FillMissingValues = false);
+        public BBGAPIDataPoint BDP(string Security, string BBGField);
+        public BBGAPIDataPoint BDP(string[] Securities, string BBGField);
+        public BBGAPIDataPoint BDP(string[] Securities, string[] BBGFields);
+        public string GetBDHAPIMessage();
+        public string GetBDPAPIMessage();
+        public bool IsBloombergConnected();
+        public void KillConnection();
+        public void StartSession();
     }
 }

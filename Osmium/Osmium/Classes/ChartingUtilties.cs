@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BusinessLogicLibrary.Enums;
 using System.Windows.Forms.DataVisualization.Charting;
+using System.Windows.Forms;
 
 namespace DesktopUI.Classes
 {
@@ -12,7 +13,7 @@ namespace DesktopUI.Classes
     {
         public SeriesChartType Get(ChartType chartType)
         {
-            return 
+            return null;
         }
     }
 }

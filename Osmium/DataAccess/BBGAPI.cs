@@ -9,7 +9,7 @@ using DataAccess.Interfaces;
 
 namespace DataAccess
 {
-    internal class BBGAPI : IBBGAPI
+    public class BBGAPI : IBBGAPI
     {
         private static readonly Name SECURITY_DATA = Name.GetName("securityData");
         private static readonly Name SECURITY_NAME = Name.GetName("security");
@@ -22,12 +22,12 @@ namespace DataAccess
         private Request _request { get; set; }
         private StringBuilder _BDPMessage { get; set; } = new StringBuilder();
         private StringBuilder _BDHMessage { get; set; } = new StringBuilder();
-        internal BBGAPI()
+        public BBGAPI()
         {
             StartSession();
         }
 
-        internal void StartSession()
+        public void StartSession()
         {
             string serverHost = "localhost";
             int serverPort = 8194;
@@ -48,40 +48,40 @@ namespace DataAccess
             }
         }
 
-        internal void KillConnection()
+        public void KillConnection()
         {
             _session.Stop();
         }
 
-        internal bool IsBloombergConnected()
+        public bool IsBloombergConnected()
         {
             return _sessionStarted;
         }
 
-        internal string GetBDHAPIMessage()
+        public string GetBDHAPIMessage()
         {
             return _BDHMessage.ToString();
         }
 
-        internal string GetBDPAPIMessage()
+        public string GetBDPAPIMessage()
         {
             return _BDPMessage.ToString();
         }
 
-        internal BBGAPIDataPoint BDP(string Security, string BBGField)
+        public BBGAPIDataPoint BDP(string Security, string BBGField)
         {
             string[] Securities = { Security };
             string[] BBGFields = { BBGField };
             return BDP(Securities, BBGFields);
         }
 
-        internal BBGAPIDataPoint BDP(string[] Securities, string BBGField)
+        public BBGAPIDataPoint BDP(string[] Securities, string BBGField)
         {
             string[] BBGFields = { BBGField };
             return BDP(Securities, BBGFields);
         }
 
-        internal BBGAPIDataPoint BDP(string[] Securities, string[] BBGFields)
+        public BBGAPIDataPoint BDP(string[] Securities, string[] BBGFields)
         {
             BuildReferenceDataRequest(Securities, BBGFields);
             _session.SendRequest(_request, null);
@@ -111,7 +111,7 @@ namespace DataAccess
             return results;
         }
 
-        internal BBGAPIHistoricalDataPoint BDH(string Security, string BBGField, DateTime StartDate, DateTime EndDate, bool FillMissingValues = false)
+        public BBGAPIHistoricalDataPoint BDH(string Security, string BBGField, DateTime StartDate, DateTime EndDate, bool FillMissingValues = false)
         {
             _BDHMessage.Clear();
             BuildHistoricalDataRequest(Security, BBGField, StartDate, EndDate, FillMissingValues);

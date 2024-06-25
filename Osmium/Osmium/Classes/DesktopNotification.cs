@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using BusinessLogicLibrary.Enums;
 using BusinessLogicLibrary.Interfaces;
 
-namespace Osmium
+namespace DesktopUI
 {
     internal class DesktopNotification : INotification
     {

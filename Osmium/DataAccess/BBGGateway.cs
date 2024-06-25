@@ -11,9 +11,9 @@ namespace DataAccess
 {
     public class BBGGateway
     {
-        private IBBGAPI _BBGAPI { get; set; }
+        private BBGAPI _BBGAPI { get; set; }
 
-        public BBGGateway(IBBGAPI API)
+        public BBGGateway(BBGAPI API)
         {
             _BBGAPI = API;
         }

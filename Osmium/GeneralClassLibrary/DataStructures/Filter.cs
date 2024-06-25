@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GeneralClassLibrary.Enums;
+using BusinessLogicLibrary.Enums;
 
 namespace BusinessLogicLibrary.DataStructures
 {
     public class Filter
     {
         public LogicalOperator LogicalOperator { get; set; } = LogicalOperator.And;
-        public string PropertyName { get; set; }
-        public Type Type { get; set; }
-        public ComparisonOperator ComparisonOperator { get; set; }
-        public dynamic Value { get; set; }
+        public string? PropertyName { get; set; }
+        public Type? Type { get; set; }
+        public ComparisonOperator? ComparisonOperator { get; set; }
+        public dynamic? Value { get; set; }
 
         public Filter()
         {

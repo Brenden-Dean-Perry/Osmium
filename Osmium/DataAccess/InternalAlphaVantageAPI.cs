@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Net;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using GeneralClassLibrary.Extentions;
 using Newtonsoft.Json.Linq;
+using BusinessLogicLibrary;
 
 namespace DataAccess
 {

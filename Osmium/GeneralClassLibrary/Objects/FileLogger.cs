@@ -8,9 +8,9 @@ namespace BusinessLogicLibrary.Objects
 {
     public class FileLogger
     {
-        private static string _LogFilePath { get; }
-        private static string _AppName { get; set; }
-        private static string _UserName { get; set; }
+        private static string _LogFilePath { get; } = String.Empty;
+        private static string _AppName { get; set; } = String.Empty;
+        private static string _UserName { get; set; } = Environment.UserName;
 
         public FileLogger()
         {

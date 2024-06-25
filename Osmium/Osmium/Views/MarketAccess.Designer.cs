@@ -1,4 +1,4 @@
-﻿namespace Osmium.Views
+﻿namespace DesktopUI.Views
 {
     partial class MarketAccess
     {

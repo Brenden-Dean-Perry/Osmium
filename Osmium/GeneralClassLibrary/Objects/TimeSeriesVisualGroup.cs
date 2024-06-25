@@ -8,10 +8,10 @@ namespace BusinessLogicLibrary.Objects
 {
     public class TimeSeriesVisualGroup
     {
-        private List<TimeSeriesVisual> _TimeSeriesGroup { get; set; }
+        private List<TimeSeriesVisual> _TimeSeriesGroup { get; set; } = new List<TimeSeriesVisual>();
         public TimeSeriesVisualGroup()
         {
-            _TimeSeriesGroup = new List<TimeSeriesVisual>();
+
         }
 
         public void Clear()
