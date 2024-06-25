@@ -1,6 +1,6 @@
 using DataAccess;
 
-namespace Osmium
+namespace DesktopUI
 {
     public partial class Main : Form
     {

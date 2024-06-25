@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using GeneralClassLibrary.Enums;
-using GeneralClassLibrary.Interfaces;
+using BusinessLogicLibrary.Enums;
+using BusinessLogicLibrary.Interfaces;
 
 namespace Osmium
 {

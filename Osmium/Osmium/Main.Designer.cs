@@ -1,4 +1,4 @@
-﻿namespace Osmium
+﻿namespace DesktopUI
 {
     partial class Main
     {

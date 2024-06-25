@@ -1,4 +1,4 @@
-namespace Osmium
+namespace DesktopUI
 {
     internal static class Program
     {
