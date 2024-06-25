@@ -9,7 +9,7 @@ using System.Windows.Forms.DataVisualization.Charting;
 
 namespace BusinessLogicLibrary.Objects
 {
-    public class TimeSeriesChart
+    public class TimeSeriesVisual
     {
         public TimeSeries TimeSeries { get; set; }
         public Color ChartColor { get; set; }
