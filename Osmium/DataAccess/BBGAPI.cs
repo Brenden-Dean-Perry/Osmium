@@ -5,10 +5,11 @@ using System.Text;
 using System.Threading.Tasks;
 using Bloomberglp.Blpapi;
 using DataAccess.DataModels;
+using DataAccess.Interfaces;
 
 namespace DataAccess
 {
-    public class BBGAPI
+    internal class BBGAPI : IBBGAPI
     {
         private static readonly Name SECURITY_DATA = Name.GetName("securityData");
         private static readonly Name SECURITY_NAME = Name.GetName("security");
@@ -19,12 +20,14 @@ namespace DataAccess
         private Service _dataService { get; set; }
         private Message _message { get; set; }
         private Request _request { get; set; }
-        public BBGAPI()
+        private StringBuilder _BDPMessage { get; set; } = new StringBuilder();
+        private StringBuilder _BDHMessage { get; set; } = new StringBuilder();
+        internal BBGAPI()
         {
             StartSession();
         }
 
-        public void StartSession()
+        internal void StartSession()
         {
             string serverHost = "localhost";
             int serverPort = 8194;
@@ -45,18 +48,95 @@ namespace DataAccess
             }
         }
 
-        public void KillConnection()
+        internal void KillConnection()
         {
             _session.Stop();
         }
 
-        public bool IsBloombergConnected()
+        internal bool IsBloombergConnected()
         {
             return _sessionStarted;
         }
 
-        //////////////////////////////////////////////////////
-    
+        internal string GetBDHAPIMessage()
+        {
+            return _BDHMessage.ToString();
+        }
+
+        internal string GetBDPAPIMessage()
+        {
+            return _BDPMessage.ToString();
+        }
+
+        internal BBGAPIDataPoint BDP(string Security, string BBGField)
+        {
+            string[] Securities = { Security };
+            string[] BBGFields = { BBGField };
+            return BDP(Securities, BBGFields);
+        }
+
+        internal BBGAPIDataPoint BDP(string[] Securities, string BBGField)
+        {
+            string[] BBGFields = { BBGField };
+            return BDP(Securities, BBGFields);
+        }
+
+        internal BBGAPIDataPoint BDP(string[] Securities, string[] BBGFields)
+        {
+            BuildReferenceDataRequest(Securities, BBGFields);
+            _session.SendRequest(_request, null);
+            return GetDataPointFromAPIResponse();
+        }
+
+        private BBGAPIDataPoint GetDataPointFromAPIResponse()
+        {
+            _BDPMessage.Clear();
+            BBGAPIDataPoint results = new BBGAPIDataPoint();
+
+            while (true)
+            {
+                Event eventObj = _session.NextEvent();
+                foreach (Message msg in eventObj)
+                {
+                    _message = msg;
+                    _BDPMessage.Append(msg.ToString());
+                    results.Add(DeserializeResponseLoopToResult());
+                }
+
+                if (eventObj.Type == Event.EventType.RESPONSE)
+                {
+                    break;
+                }
+            }
+            return results;
+        }
+
+        internal BBGAPIHistoricalDataPoint BDH(string Security, string BBGField, DateTime StartDate, DateTime EndDate, bool FillMissingValues = false)
+        {
+            _BDHMessage.Clear();
+            BuildHistoricalDataRequest(Security, BBGField, StartDate, EndDate, FillMissingValues);
+            _session.SendRequest(_request, null);
+            BBGAPIHistoricalDataPoint results = new BBGAPIHistoricalDataPoint();
+
+            while (true)
+            {
+                Event eventObj = _session.NextEvent();
+                foreach (Message msg in eventObj)
+                {
+                    _message = msg;
+                    _BDHMessage.Append(msg.ToString());
+                    results.Add(DeserializeResponseToHistoricalResult(BBGField));
+                }
+
+                if (eventObj.Type == Event.EventType.RESPONSE)
+                {
+                    break;
+                }
+            }
+            return results;
+        }
+
+
         private BBGAPIDataPoint DeserializeResponseLoopToResult()
         {
             BBGAPIDataPoint results = new BBGAPIDataPoint();
@@ -85,13 +165,13 @@ namespace DataAccess
 
             Element securityData = GetSecurityDataElement();
             List<Element> SecurityDataElements = GetSubValuesAsElementsFromElement(securityData);
-            foreach(Element securityDataElement in SecurityDataElements)
+            foreach (Element securityDataElement in SecurityDataElements)
             {
                 List<Element> fieldDataElements = GetSubElementsFromElement(securityDataElement);
-                foreach(Element fieldDataElement in fieldDataElements)
+                foreach (Element fieldDataElement in fieldDataElements)
                 {
                     List<Element> fields = GetSubElementsFromElement(fieldDataElement);
-                    foreach(Element field in fields)
+                    foreach (Element field in fields)
                     {
                         BBGAPIDataPointStructure result = new BBGAPIDataPointStructure();
                         result.Ticker = GetSecurityNameFromElement(securityDataElement);
@@ -122,14 +202,14 @@ namespace DataAccess
             result.Message = _message.ToString();
             result.Data = new SortedDictionary<DateTime, decimal>();
             DateTime DataDate = DateTime.MinValue;
-            foreach(Element field in fields)
+            foreach (Element field in fields)
             {
-                if(field.Name.ToString().ToLower() == "date")
+                if (field.Name.ToString().ToLower() == "date")
                 {
                     DataDate = field.GetValueAsDatetime().ToSystemDateTime();
                 }
 
-                if(field.Name.ToString().ToLower() == TargetField.ToLower())
+                if (field.Name.ToString().ToLower() == TargetField.ToLower())
                 {
                     decimal returnValue = (decimal)field.GetValueAsFloat64();
                     result.Data.Add(DataDate, returnValue);
@@ -157,7 +237,7 @@ namespace DataAccess
         private List<Element> GetSubElementsFromElement(Element element)
         {
             List<Element> subElements = new List<Element>();
-            for(int i = 0; i < element.NumElements; i++)
+            for (int i = 0; i < element.NumElements; i++)
             {
                 subElements.Add(element.GetElement(i));
             }
@@ -167,7 +247,7 @@ namespace DataAccess
         private List<Element> GetSubElementsFromMultipleElements(List<Element> elements)
         {
             List<Element> SubElements = new List<Element>();
-            foreach(Element element in elements)
+            foreach (Element element in elements)
             {
                 SubElements.AddRange(GetSubElementsFromElement(element));
             }
@@ -178,7 +258,7 @@ namespace DataAccess
         private List<Element> GetSubValuesAsElementsFromMultipleElements(List<Element> elements)
         {
             List<Element> subElements = new List<Element>();
-            foreach(Element element in elements)
+            foreach (Element element in elements)
             {
                 subElements.AddRange(GetSubValuesAsElementsFromElement(element));
             }
@@ -188,7 +268,7 @@ namespace DataAccess
         private List<Element> GetSubValuesAsElementsFromElement(Element element)
         {
             List<Element> Elements = new List<Element>();
-            for(int i = 0; i < element.NumValues; i++)
+            for (int i = 0; i < element.NumValues; i++)
             {
                 Elements.Add(element.GetValueAsElement(i));
             }
@@ -198,7 +278,7 @@ namespace DataAccess
         private void BuildReferenceDataRequest(string Security, string BBGField)
         {
             string[] Securities = { Security };
-            string[] Fields = {BBGField};
+            string[] Fields = { BBGField };
             BuildReferenceDataRequest(Securities, Fields);
         }
 
@@ -206,12 +286,12 @@ namespace DataAccess
         private void BuildReferenceDataRequest(string[] Securities, string[] BBGFields)
         {
             _request = _dataService.CreateRequest("ReferenceDataRequest");
-            foreach(string Security in Securities)
+            foreach (string Security in Securities)
             {
                 AppendSecurityToRequest(Security);
             }
 
-            foreach(string field in BBGFields)
+            foreach (string field in BBGFields)
             {
                 AppendFieldToRequest(field);
             }
@@ -226,7 +306,7 @@ namespace DataAccess
             AppendStartDateToRequest(StartDate);
             AppendEndDateToRequest(EndDate);
 
-            if(FillMissingValues == true)
+            if (FillMissingValues == true)
             {
                 AppendFillMethodToRequest();
             }
