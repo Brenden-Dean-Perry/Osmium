@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneralClassLibrary.Objects
+namespace BusinessLogicLibrary.Objects
 {
     public class SortableBindingList<T> : BindingList<T>
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneralClassLibrary.Interfaces
+namespace BusinessLogicLibrary.Interfaces
 {
     public interface IExchangeRate
     {

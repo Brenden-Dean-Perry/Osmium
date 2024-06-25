@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneralClassLibrary.DataStructures
+namespace BusinessLogicLibrary.DataStructures
 {
     public class SummaryStatistics
     {

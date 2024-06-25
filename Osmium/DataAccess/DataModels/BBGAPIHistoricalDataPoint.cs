@@ -35,7 +35,7 @@ namespace DataAccess.DataModels
             return result;
         }
 
-        public SortedDictionary<DateTime, decimal> GetValuTimeSeries(string Ticker, string Field)
+        public SortedDictionary<DateTime, decimal> GetValueTimeSeries(string Ticker, string Field)
         {
             SortedDictionary<DateTime, decimal> values = new SortedDictionary<DateTime, decimal>();
             return GetValueAsDictionary(Ticker, Field);

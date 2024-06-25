@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLogicLibrary.Enums
 {
-    public enum NotificationResponse
+    public enum TimeSeriesPurpose
     {
-        Yes,
-        No,
-        Cancel
+        Investment,
+        Benchmark,
+        RiskFreeRate,
+        Unclassified
     }
 }

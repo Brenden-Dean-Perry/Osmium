@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Drawing;
 
-namespace GeneralClassLibrary.Utilities
+namespace BusinessLogicLibrary.Utilities
 {
     public static class ColorUtilities
     {

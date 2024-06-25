@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GeneralClassLibrary.Utilities
+namespace BusinessLogicLibrary.Utilities
 {
     public static class ViewModelFactory
     {

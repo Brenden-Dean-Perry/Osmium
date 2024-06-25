@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GeneralClassLibrary.Enums;
 
-namespace GeneralClassLibrary.Utilities
+namespace BusinessLogicLibrary.Utilities
 {
     public class TimeSeriesUtilities
     {

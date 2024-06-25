@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Diagnostics;
 
-namespace GeneralClassLibrary.Objects
+namespace BusinessLogicLibrary.Objects
 {
     public class SystemProcess
     {

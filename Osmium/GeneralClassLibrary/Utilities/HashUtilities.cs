@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 
-namespace GeneralClassLibrary.Utilities
+namespace BusinessLogicLibrary.Utilities
 {
     public static class HashUtilities
     {

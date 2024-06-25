@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using GeneralClassLibrary.Enums;
 
-namespace GeneralClassLibrary.DataStructures
+namespace BusinessLogicLibrary.DataStructures
 {
     public class Filter
     {
